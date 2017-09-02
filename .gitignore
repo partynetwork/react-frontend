@@ -1,0 +1,17 @@
+# Mac
+.DS_Store
+
+# Build path
+dist
+
+node_modules
+stats.json
+coverage
+
+# Editor
+.idea
+.vscode
+
+yarn.lock
+yarn-error.log
+npm-debug.log
