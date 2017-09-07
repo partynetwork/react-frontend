@@ -17,7 +17,9 @@ module.exports = {
   rules: {
     semi: [2, 'never'],
     'max-len': 'off',
+    'linebreak-style': 'off',
     'template-curly-spacing': 'off',
+    'object-curly-spacing': 'off',
     'global-require': 'off',
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
@@ -60,6 +62,7 @@ module.exports = {
     ],
   },
   settings: {
+    allowParens: true,
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'
     // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers
     'import/resolver': {

@@ -20,7 +20,7 @@ const webpackConfig = {
         comments: false,
       },
       compress: {
-        // drop_console: true,
+        drop_console: true,
         warnings: false,
         screw_ie8: true,
       },
@@ -43,7 +43,6 @@ const webpackConfig = {
         minifyCSS: true,
         minifyURLs: true,
       },
-      platform: process.env.PLATFORM || 'cordova',
       inject: true,
     }),
   ],
