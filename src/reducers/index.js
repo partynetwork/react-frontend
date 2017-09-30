@@ -6,6 +6,7 @@ import { LOCATION_CHANGE } from 'react-router-redux'
 import { reducer as reduxFormReducer } from 'redux-form/immutable'
 import intlProviderReducer from 'containers/IntlProvider/reducer'
 import modalReducer from 'containers/ModalProvider/reducer'
+import userReducer from './user'
 
 // Initial routing state
 const routeInitialState = fromJS({
@@ -29,6 +30,7 @@ export default function createReducer(asyncReducers) {
     modal: modalReducer,
     language: intlProviderReducer,
     form: reduxFormReducer,
+    user: userReducer,
     ...asyncReducers,
   })
 }

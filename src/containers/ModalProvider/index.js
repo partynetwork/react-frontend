@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -43,19 +44,18 @@ const customStyles = {
 class ModalRoot extends Component {
   render() {
     const { component, contentProps, isOpen } = this.props
-    if (!component) {
-      return <div />
-    }
-    const ModalType = MODAL_COMPONENT.SimpleDialog || <div />
+    // if (!component) {
+    //   return <div />
+    // }
+    const ModalType = MODAL_COMPONENT.SimpleDialog
     return (
       <Modal
         isOpen={isOpen}
         contentLabel="Dialog"
         closeTimeoutMS={100}
         style={customStyles}
-        parentSelector={() => document.querySelector('#app')}
       >
-        <ModalType {...contentProps} />
+        LOOO
       </Modal>
     )
   }
@@ -74,6 +74,6 @@ ModalRoot.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  ...state.get('modal'),
+  ...state.get('modal').toJS(),
 })
 export default connect(mapStateToProps)(ModalRoot)

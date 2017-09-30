@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import Hammer from 'react-hammerjs'
 import Button from 'components/Button'
 
 // language=SCSS prefix=&{ suffix=}
@@ -40,11 +39,9 @@ const SimpleDialog = (props) => {
         )}
       </div>
       <Controls>
-        <Hammer onTap={props.onClickConfirm}>
-          <ConfirmButton type="button">
-            <FormattedMessage id={props.messageBtnConfirm} />
-          </ConfirmButton>
-        </Hammer>
+        <ConfirmButton type="button" onClick={props.onClickConfirm}>
+          <FormattedMessage id={props.messageBtnConfirm} />
+        </ConfirmButton>
       </Controls>
     </ModalDialog>
   )

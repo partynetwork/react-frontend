@@ -5,6 +5,7 @@ import createSagaMiddleware from 'redux-saga'
 import { routerMiddleware } from 'react-router-redux'
 
 import createReducer from './reducers'
+import mySaga from './saga'
 
 // Redux Saga for side effect promise
 const sagaMiddleware = createSagaMiddleware()
@@ -36,7 +37,7 @@ export default (initialState = {}, history) => {
   )
 
   // Extensions
-  store.runSaga = sagaMiddleware.run
+  store.runSaga = sagaMiddleware.run(mySaga)
   store.asyncReducers = {} // Async reducer registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo

@@ -1,45 +1,48 @@
+/* eslint-disable */
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Row, Text } from 'rebass'
-import styled from 'styled-components'
-import SwitchLocale from 'containers/Home/SwitchLocale'
-import Button from 'components/Button'
-
-// language=SCSS prefix=&{ suffix=}
-const Header = styled.header`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 10em;
-    padding: 3em 0;
-    position: relative;
-    background-color: #233443;
-    > p {
-      color: white;
-    }
-`
+import ModalRoot from 'containers/ModalProvider'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+// import { Text } from 'rebass'
+import { fetchUserAction } from './actions'
 
 class Home extends Component {
+  constructor() {
+    super()
+    this.state = {
+      userId: '',
+      id: '',
+      title: [],
+      body: [],
+    }
+  }
+
+  componentDidMount() {
+    this.props.fetchUserAction(2)
+    this.props.fetchUserAction(3)
+    this.props.fetchUserAction(4)
+    this.props.fetchUserAction(5)
+    this.props.fetchUserAction(6)
+    this.props.fetchUserAction(7)
+  }
+
   render() {
     return (
       <div>
-        <Header>
-          <SwitchLocale />
-          <Text fontSize="2.3rem">React Frontend Web Starter</Text>
-          <Text fontSize="1.3rem">Quick setup and high performance</Text>
-          <Row mt={3}>
-            <Button>
-              Github
-            </Button>
-          </Row>
-        </Header>
-        <Container maxWidth="auto">
-          <Link to="/about">About</Link>
-        </Container>
+        <ModalRoot />
+        {JSON.stringify(this.props.user.toJS())}
       </div>
     )
   }
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+  user: state.get('user')
+})
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators({
+    fetchUserAction,
+  }, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
