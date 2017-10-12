@@ -50,7 +50,9 @@ const SimpleDialog = (props) => {
 SimpleDialog.propTypes = {
   messageTitle: PropTypes.string,
   messageBtnConfirm: PropTypes.string,
+  messageBtnCancel: PropTypes.string,
   onClickConfirm: PropTypes.func,
+  onClickCancel: PropTypes.func,
 }
 SimpleDialog.defaultProps = {
   messageTitle: '',

@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <Container>
         <Text>About Page</Text>
-        <Link to="/">back to home</Link>
+        <Link href="/">back to home</Link>
       </Container>
     )
   }

@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
 
     case CLOSE_UI_DIALOG:
       return state.set('isOpen', false)
-    default :
+    default:
       return state
   }
 }
