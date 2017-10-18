@@ -6,7 +6,6 @@ import { ConnectedRouter } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import { persistStore } from 'redux-persist-immutable'
 import IntlProvider from 'containers/IntlProvider'
-import { DefaultTheme as ThemeProvider } from 'containers/ThemeProvider'
 import configure from './store'
 import RootRoutes from './routes'
 
@@ -23,13 +22,11 @@ const store = configure({}, browserHistory)
 
 const render = (translatedMessages) => {
   ReactDOM.render(
-    <Provider store={store} persistor={persistStore(store, { whitelist: ['language'] })}>
+    <Provider store={store} persistor={persistStore(store, {whitelist: ['language']})}>
       <IntlProvider messages={translatedMessages}>
-        <ThemeProvider>
-          <ConnectedRouter history={browserHistory}>
-            <RootRoutes />
-          </ConnectedRouter>
-        </ThemeProvider>
+        <ConnectedRouter history={browserHistory}>
+          <RootRoutes />
+        </ConnectedRouter>
       </IntlProvider>
     </Provider>,
     document.getElementById('app'),

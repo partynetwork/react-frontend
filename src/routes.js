@@ -7,8 +7,8 @@ import HomeContainer from 'containers/Home'
 export default () => (
   <Router>
     <AppContainer>
-      <Route exact path="/about" component={AboutContainer} />
       <Route exact path="/" component={HomeContainer} />
+      <Route path="/about" component={AboutContainer} />
     </AppContainer>
   </Router>
 )

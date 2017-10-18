@@ -1,21 +1,31 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { DefaultTheme as ThemeProvider } from 'containers/ThemeProvider'
 import ModalRoot from 'containers/ModalProvider'
 
 // language=SCSS prefix=dummy{ suffix=}
-const AppContainer = styled.main`
+const AppWrapper = styled.main`
     display: flex;
     min-height: 100%;
     padding: 0 16px;
     flex-direction: column;
 `
 
-const App = ({ children }) => (
-  <AppContainer>
-    <ModalRoot />
-    {React.Children.toArray(children)}
-  </AppContainer>
+const App = ({children}) => (
+  <AppWrapper>
+    <Helmet
+      titleTemplate="BCR777 - %s"
+      defaultTitle="BCR777 - Default Title"
+    >
+      <meta name="description" content="Your side description" />
+    </Helmet>
+    <ThemeProvider>
+      <ModalRoot />
+      {React.Children.toArray(children)}
+    </ThemeProvider>
+  </AppWrapper>
 )
 App.defaultProps = {
   children: null,

@@ -1,48 +1,55 @@
-/* eslint-disable */
 import React, { Component } from 'react'
-import ModalRoot from 'containers/ModalProvider'
-import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
+import { bindActionCreators, compose } from 'redux'
 import { connect } from 'react-redux'
-// import { Text } from 'rebass'
+import { Helmet } from 'react-helmet'
+import injectSaga from 'utils/injectSaga'
+
 import { fetchUserAction } from './actions'
+import saga from './saga'
 
 class Home extends Component {
   constructor() {
     super()
-    this.state = {
-      userId: '',
-      id: '',
-      title: [],
-      body: [],
-    }
+    this.state = {}
   }
 
   componentDidMount() {
-    this.props.fetchUserAction(2)
-    this.props.fetchUserAction(3)
-    this.props.fetchUserAction(4)
-    this.props.fetchUserAction(5)
-    this.props.fetchUserAction(6)
     this.props.fetchUserAction(7)
   }
 
   render() {
     return (
-      <div>
-        <ModalRoot />
+      <article>
+        <Helmet>
+          <title>Home Page</title>
+        </Helmet>
         {JSON.stringify(this.props.user.toJS())}
-      </div>
+      </article>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.get('user')
+Home.propTypes = {
+  user: PropTypes.object.isRequired,
+  fetchUserAction: PropTypes.func,
+}
+Home.defaultProps = {
+  fetchUserAction: () => null,
+}
+const mapStateToProps = state => ({
+  user: state.get('user'),
 })
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
     fetchUserAction,
-  }, dispatch)
+  }, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+const withConnect = connect(mapStateToProps, mapDispatchToProps)
+const withSaga = injectSaga({key: 'home', saga})
+
+export default compose(
+  withConnect,
+  withSaga,
+)(Home)
