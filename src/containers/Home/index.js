@@ -37,6 +37,7 @@ Home.propTypes = {
 Home.defaultProps = {
   fetchUserAction: () => null,
 }
+
 const mapStateToProps = state => ({
   user: state.get('user'),
 })

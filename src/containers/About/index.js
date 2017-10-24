@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Container, Text } from 'rebass'
 
 class About extends Component {
@@ -7,7 +6,6 @@ class About extends Component {
     return (
       <Container>
         <Text>About Page</Text>
-        <Link href="/">back to home</Link>
       </Container>
     )
   }

@@ -1,12 +1,14 @@
-/* eslint-disable */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
+import has from 'lodash/has'
+import get from 'lodash/get'
 import SimpleDialog from './Dialogs/SimpleDialog'
 
 const MODAL_COMPONENT = {
   SimpleDialog,
+  default: SimpleDialog,
 }
 
 const customStyles = {
@@ -43,11 +45,11 @@ const customStyles = {
 
 class ModalRoot extends Component {
   render() {
-    const { component, contentProps, isOpen } = this.props
-    // if (!component) {
-    //   return <div />
-    // }
-    const ModalType = MODAL_COMPONENT.SimpleDialog
+    const {component, contentProps, isOpen} = this.props
+    if (!component) {
+      return <SimpleDialog {...contentProps} />
+    }
+    const ModalComponent = has(MODAL_COMPONENT, component) ? get(MODAL_COMPONENT, component) : SimpleDialog
     return (
       <Modal
         isOpen={isOpen}
@@ -55,7 +57,7 @@ class ModalRoot extends Component {
         closeTimeoutMS={100}
         style={customStyles}
       >
-        LOOO
+        <ModalComponent {...contentProps} />
       </Modal>
     )
   }
@@ -69,7 +71,7 @@ ModalRoot.defaultProps = {
 
 ModalRoot.propTypes = {
   contentProps: PropTypes.object,
-  isOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool,
   component: PropTypes.string,
 }
 

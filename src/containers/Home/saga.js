@@ -4,7 +4,7 @@ import axios from 'axios'
 import { SHOW_UI_DIALOG, CLOSE_UI_DIALOG } from 'containers/ModalProvider/constants'
 
 function* fetchUser(action) {
-  yield put({type: SHOW_UI_DIALOG, component: 'default', contentProps: {messageTitle: 'KUY'}})
+  yield put({type: SHOW_UI_DIALOG, component: 'default', contentProps: {messageTitle: 'Dialog message'}})
   yield delay(2000)
   try {
     const {data} = yield call(axios.get, `https://jsonplaceholder.typicode.com/posts/${action.userId}`)

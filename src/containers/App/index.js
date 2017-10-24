@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { DefaultTheme as ThemeProvider } from 'containers/ThemeProvider'
 import ModalRoot from 'containers/ModalProvider'
+import Navbar from 'components/Navbar'
 
 // language=SCSS prefix=dummy{ suffix=}
 const AppWrapper = styled.main`
+    min-height: 100vh;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
-    min-height: 100%;
-    padding: 0 16px;
     flex-direction: column;
 `
 
@@ -23,6 +25,7 @@ const App = ({children}) => (
     </Helmet>
     <ThemeProvider>
       <ModalRoot />
+      <Navbar />
       {React.Children.toArray(children)}
     </ThemeProvider>
   </AppWrapper>

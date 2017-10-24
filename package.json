@@ -46,7 +46,6 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "next",
     "react-select": "^1.0.0-rc.10",
-    "react-tappable": "^1.0.2",
     "rebass": "^1.0.4",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",

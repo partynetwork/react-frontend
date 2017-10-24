@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Tappable from 'react-tappable/lib/Tappable'
+
 // language=SCSS prefix=&{ suffix=}
 const Wrapper = styled.ul`
     padding: 0;
@@ -18,14 +18,14 @@ const SwitchLocale = (props) => {
   return (
     <Wrapper>
       <li>
-        <Tappable onTap={() => handleChangeLocale('en')}>
+        <button href="#" onClick={() => handleChangeLocale('en')}>
           EN
-        </Tappable>
+        </button>
       </li>
       <li>
-        <Tappable onTap={() => handleChangeLocale('th')}>
+        <button href="#" onClick={() => handleChangeLocale('th')}>
           TH
-        </Tappable>
+        </button>
       </li>
     </Wrapper>
   )

@@ -5,6 +5,7 @@ import { LOCATION_CHANGE } from 'react-router-redux'
 // Import reducers
 import { reducer as reduxFormReducer } from 'redux-form/immutable'
 import intlProviderReducer from 'containers/IntlProvider/reducer'
+import globalReducer from 'containers/App/reducer'
 import modalReducer from 'containers/ModalProvider/reducer'
 import userReducer from './user'
 
@@ -27,6 +28,7 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
+    global: globalReducer,
     modal: modalReducer,
     language: intlProviderReducer,
     form: reduxFormReducer,
