@@ -1,3 +1,5 @@
 {
-  "app.containers.Home.PageTitle": "สวัสดี ฉันคือหน้าแรก"
+  "app.components.Navbar.homeLink": "หน้าแรก",
+  "app.components.Navbar.aboutLink": "เกี่ยวกับ",
+  "app.containers.Home.pageTitle": "สวัสดี ฉันคือหน้าแรก"
 }

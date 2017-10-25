@@ -18,9 +18,11 @@ module.exports = {
     semi: [2, 'never'],
     'max-len': 'off',
     'linebreak-style': 'off',
+    'no-shadow': 'off',
     'template-curly-spacing': 'off',
     'object-curly-spacing': 'off',
     'global-require': 'off',
+    "jsx-a11y/anchor-is-valid": 'off',
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
     'no-console': [

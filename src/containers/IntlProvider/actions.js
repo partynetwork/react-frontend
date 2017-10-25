@@ -13,3 +13,7 @@ export function changeLocale(locale) {
     locale,
   }
 }
+
+export default {
+  changeLocale,
+}

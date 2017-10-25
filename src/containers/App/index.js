@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { DefaultTheme as ThemeProvider } from 'containers/ThemeProvider'
+import ThemeProvider from 'containers/ThemeProvider'
 import ModalRoot from 'containers/ModalProvider'
 import Navbar from 'components/Navbar'
 

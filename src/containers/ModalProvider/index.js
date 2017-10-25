@@ -5,9 +5,10 @@ import Modal from 'react-modal'
 import has from 'lodash/has'
 import get from 'lodash/get'
 import SimpleDialog from './Dialogs/SimpleDialog'
+import LoadingDialog from './Dialogs/LoadingDialog'
 
 const MODAL_COMPONENT = {
-  SimpleDialog,
+  loading: LoadingDialog,
   default: SimpleDialog,
 }
 
@@ -24,7 +25,7 @@ const customStyles = {
     zIndex: 99,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(35,35,35,.6)',
+    backgroundColor: 'rgba(35,35,35,.3)',
   },
   content: {
     top: 0,
@@ -37,7 +38,7 @@ const customStyles = {
     background: 'transparent',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
-    borderRadius: '4px',
+    borderRadius: '0',
     outline: 'none',
     padding: '0px',
   },
@@ -45,10 +46,8 @@ const customStyles = {
 
 class ModalRoot extends Component {
   render() {
-    const {component, contentProps, isOpen} = this.props
-    if (!component) {
-      return <SimpleDialog {...contentProps} />
-    }
+    const { component, contentProps, isOpen } = this.props
+    if (!component) return false
     const ModalComponent = has(MODAL_COMPONENT, component) ? get(MODAL_COMPONENT, component) : SimpleDialog
     return (
       <Modal

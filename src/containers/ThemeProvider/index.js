@@ -29,8 +29,6 @@ const defaultTheme = {
 
 // Create a GreenSection component that renders its children wrapped in
 // a ThemeProvider with a green theme
-export const DefaultTheme = ({ children }) => <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
+export const DefaultTheme = ({ children }) => (<ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>)
 
-export default {
-  DefaultTheme,
-}
+export default DefaultTheme

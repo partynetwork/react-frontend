@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Button from 'components/Button'
 
 // language=SCSS prefix=&{ suffix=}
 const Wrapper = styled.ul`
@@ -18,14 +19,19 @@ const SwitchLocale = (props) => {
   return (
     <Wrapper>
       <li>
-        <button href="#" onClick={() => handleChangeLocale('en')}>
+        <Button
+          onClick={() => handleChangeLocale('en')}
+          color={props.currentLocale === 'en' ? 'primary' : '#000000'}
+        >
           EN
-        </button>
+        </Button>
       </li>
       <li>
-        <button href="#" onClick={() => handleChangeLocale('th')}>
+        <Button
+          onClick={() => handleChangeLocale('th')}
+        >
           TH
-        </button>
+        </Button>
       </li>
     </Wrapper>
   )
@@ -33,6 +39,7 @@ const SwitchLocale = (props) => {
 
 SwitchLocale.propTypes = {
   onChange: PropTypes.func,
+  currentLocale: PropTypes.string,
 }
 SwitchLocale.defaultProps = {
   currentLocale: null,

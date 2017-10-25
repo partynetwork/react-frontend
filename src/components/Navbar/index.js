@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
 import NavLink from './NavLink'
+import messages from './messages'
 // language=SCSS prefix=&{ suffix=}
 const Wrapper = styled.div`
     background-color: #14001e;
@@ -8,10 +10,10 @@ const Wrapper = styled.div`
 const NavBar = () => (
   <Wrapper>
     <NavLink to="/">
-      Home
+      <FormattedMessage {...messages.homeLink} />
     </NavLink>
     <NavLink to="/about">
-      About
+      <FormattedMessage {...messages.aboutLink} />
     </NavLink>
   </Wrapper>
 )

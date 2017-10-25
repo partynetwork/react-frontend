@@ -4,19 +4,15 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import Button from 'components/Button'
 
+import messages from '../messages'
+
 // language=SCSS prefix=&{ suffix=}
 const ModalDialog = styled.div`
-    background-color: ${props => props.theme.colors.white};
+    background-color: white;
     padding: 1em 2.6em;
     width: 28em;
     border-radius: .1em;
     box-shadow: rgba(0, 0, 0, 0.4) 0 6px 98px;
-`
-// language=SCSS prefix=&{ suffix=}
-const ConfirmButton = styled(Button)`
-    font-size: 2em;
-    background-color: transparent;
-    border: none;
 `
 // language=SCSS prefix=&{ suffix=}
 const Controls = styled.div`
@@ -34,14 +30,14 @@ const SimpleDialog = (props) => {
       <div className="content">
         {ContentMessageComponent ? <ContentMessageComponent {...props} /> : (
           <h4>
-            <FormattedMessage id={props.messageTitle} />
+            <FormattedMessage {...messages.messageTitle} />
           </h4>
         )}
       </div>
       <Controls>
-        <ConfirmButton type="button" onClick={props.onClickConfirm}>
-          <FormattedMessage id={props.messageBtnConfirm} />
-        </ConfirmButton>
+        <Button type="button" onClick={props.onClickConfirm}>
+          <FormattedMessage {...messages.messageBtnConfirm} />
+        </Button>
       </Controls>
     </ModalDialog>
   )
