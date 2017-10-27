@@ -11,6 +11,14 @@ const server = new WebpackDevServer(webpack(require('./dev.config')), {
   stats: {
     colors: true,
   },
+  proxy: {
+    '/api': {
+      target: 'https://anapioficeandfire.com',
+      secure: false,
+      changeOrigin: true,
+      logLevel: 'debug',
+    },
+  },
   historyApiFallback: true,
   hot: true,
 })

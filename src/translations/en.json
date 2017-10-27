@@ -1,3 +1,5 @@
 {
-  "app.containers.Home.PageTitle": "Hi, I'm HomePage"
+  "app.components.Navbar.homeLink": "Home",
+  "app.components.Navbar.aboutLink": "About",
+  "app.containers.Home.pageTitle": "Home page"
 }

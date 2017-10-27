@@ -18,7 +18,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserAction(7)
+    this.props.fetchUserAction(583)
   }
 
   render() {

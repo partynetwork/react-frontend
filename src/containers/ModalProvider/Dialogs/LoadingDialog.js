@@ -8,7 +8,7 @@ const CssLoad = styled.div`
     height: 100px;
     text-align: center;
     display: flex;
-    border-radius: 15px;
+    border-radius: 4px;
     justify-content: center;
     background: rgba(255, 255, 255, 1);
     align-items: center;
