@@ -9,6 +9,7 @@ const defaultTheme = {
     warning: '#FECE00',
     error: '#e1343e',
     info: '#549fe2',
+    red: '#ef2c48',
     defaultButtonBgColor: '#c4c4c4',
   },
   font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif',

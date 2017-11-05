@@ -7,6 +7,8 @@ import { Helmet } from 'react-helmet'
 import injectSaga from 'utils/injectSaga'
 import { changeLocale } from 'containers/IntlProvider/actions'
 import SwitchLocale from 'components/SwitchLocale'
+import { Heading } from 'rebass'
+
 import { fetchUserAction } from './actions'
 import saga from './saga'
 import messages from './messages'
@@ -22,13 +24,16 @@ class Home extends Component {
   }
 
   render() {
-    const { intl, changeLocale } = this.props
+    const {intl, changeLocale} = this.props
     return (
       <article>
         <Helmet>
           <title>{intl.formatMessage(messages.pageTitle)}</title>
         </Helmet>
         <SwitchLocale onChange={changeLocale} />
+        <Heading is="h4" color="red">
+          Home page
+        </Heading>
         {JSON.stringify(this.props.user.toJS())}
       </article>
     )
@@ -59,7 +64,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withSaga = injectSaga({ key: 'home', saga })
+const withSaga = injectSaga({key: 'home', saga})
 
 export default compose(
   withConnect,
